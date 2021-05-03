@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int q = sc.nextInt();
+        int[] b = new int[q];
+        
+        for (int i = 0; i < q; i++){
+            b[i] = sc.nextInt();
+        }
+        sc.close();
+        int negativeSubarray = 0;
+        for(int i = 0; i < q; i++){
+            for (int j = i; j < q; j++){
+                int sum = 0;
+                for(int k = i; k <= j; k++){
+                    sum = sum + b[k];
+                }
+                if(sum < 0){
+                    negativeSubarray++;
+                }
+            }
+        }
+        System.out.println(negativeSubarray);
+    }
+}
